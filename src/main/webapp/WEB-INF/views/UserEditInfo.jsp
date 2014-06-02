@@ -16,7 +16,7 @@
 
 .layer_user_info {
 	color: red;
-	font-size: larger;
+	font-size: 30px;
 	font-weight: bold;
 }
 .layer_fixed_length {
@@ -49,13 +49,30 @@
 <body>
 	
 	<img src='images/main.jpg' width="1330" height="80" />
-	
 	<table>
-		<tr>
-			<td width="80%">
+		<tr >
+			<td width="20%" bgcolor="#fdeaa4" valign="top">
+				<div class="layer_user_info">
+					${user.name}
+					${user.surname}  
+				</div>
+				
+				<br>
+				<a href="<c:url value="/userhome"/>">My Home Page</a>
+				<br>
+				<a href="<c:url value="/usereditinfo"/>">Edit info</a>
+				<br>
+				<a href="<c:url value="/twitspage"/>">Twits</a>	
+				<br>
+				<a href="<c:url value="/friends"/>">Friends</a>	
+				<br>
+			    <a href="<c:url value="/search_users"/>"> Search Users</a>
+				<br>
+				<a href="<c:url value="/news"/>">News</a>
+			</td>
+			<td width="60%" bgcolor="#fdeef4" valign="top">
 				<div>
 					<div class="layer_user_info" style="display: inline;">${user.name} ${user.surname}</div>
-					<div style="display: inline; float: right;" ><a href="<c:url value="/userhome"/>">home page</a> </div>
 				</div>
 			<hr color="green" width="400px" size="5" align="left">
 
@@ -200,13 +217,20 @@
 				<hr color="green" width="400px" size="5" align="left">
 				 Photo
 				<br>
-				<label for="file"></label>
-				<input name="file" type="file">
+				<form method="post" action="loadUserPhoto" enctype="multipart/form-data">
+					<label for="file"></label>
+					<input name="file" type="file" value="load">
+					<input type="submit" value="save">
+				</form>
+				<c:if test="${not empty photo}">
+					Photo:<img src="/photo/${user.id}"></img>
+				</c:if>
+				
 
 
 			</td>
 
-			<td width="20%" bgcolor="#6CC417" align="right">
+			<td width="20%" bgcolor="#6CC417" align="right" valign="top">
 				<table>
 					<tr>
 						<td><a href="<c:url value="/logout"/>">logout</a>

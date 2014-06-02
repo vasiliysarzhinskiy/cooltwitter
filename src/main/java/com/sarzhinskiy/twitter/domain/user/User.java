@@ -17,6 +17,7 @@ public class User implements Serializable {
 	private String name;
 	private UserRole role;
 	private Boolean blocked = false;
+	private byte [] photo;
 	
 	public User() {
 	}
@@ -108,6 +109,14 @@ public class User implements Serializable {
 
 	public void setBlocked(Boolean blocked) {
 		this.blocked = blocked;
+	}
+	
+	public void setPhoto(byte [] bytes) {
+		photo = bytes;
+	}
+	
+	public byte [] getPhoto() {
+		return photo;
 	}
 	
 }

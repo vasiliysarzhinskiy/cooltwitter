@@ -23,7 +23,7 @@ public class LoginController {
 	
 	@Autowired
 	private UserManager userManager;		
-
+	
 	@Autowired
 	private UserService userService;
 	
@@ -34,6 +34,7 @@ public class LoginController {
 	@RequestMapping("/login")
 	public String tryLogin(HttpSession session,
             HttpServletRequest request,  RedirectAttributes redirectAttributes, @RequestParam String email, @RequestParam String password) {
+		System.out.println("/login");
 		if ((email == null || email.isEmpty()) 
 				|| (password == null || password.isEmpty())) {
 			redirectAttributes.addFlashAttribute("err_register_empty","true");
@@ -50,6 +51,7 @@ public class LoginController {
 	
 	@RequestMapping("/registration")
 	public String registration() {
+		System.out.println("/registration");
 		return REGISTER_PAGE;
 	}
 	

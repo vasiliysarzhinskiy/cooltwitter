@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="joda" uri="http://www.joda.org/joda/time/tags" %>>
+<%@ taglib prefix="joda" uri="http://www.joda.org/joda/time/tags" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,7 +16,7 @@
 }
 .layer_user_info {
 	color: red;
-	font-size: larger;
+	font-size: 30px;
 	font-weight: bold;
 }
 </style>
@@ -35,18 +35,18 @@
 					${user.surname}  
 				</div>
 				
-				NEWS!!!!!!!!!!!!!!!!!!!!!!!!
-				<spring:message code="label.title_news" />
 				<br>
 				<a href="<c:url value="/userhome"/>">My Home Page</a>
-				<br>
-			    <a href="<c:url value="/user/viewall"/>"> View All Users</a>
 				<br>
 				<a href="<c:url value="/usereditinfo"/>">Edit info</a>
 				<br>
 				<a href="<c:url value="/twitspage"/>">Twits</a>	
 				<br>
 				<a href="<c:url value="/friends"/>">Friends</a>	
+				<br>
+			    <a href="<c:url value="/search_users"/>"> Search Users</a>
+				<br>
+				<a href="<c:url value="/news"/>">News</a>
 			</td>
 			
 			<td width="60%" bgcolor="#fdeef4" valign="top">
@@ -142,7 +142,7 @@
 				</c:if>
 			</td>
 
-			<td width="20%" bgcolor="#6CC417" align="right">
+			<td width="20%" bgcolor="#6CC417" align="right" valign="top">
 				<table>
 					<tr>
 						<td>

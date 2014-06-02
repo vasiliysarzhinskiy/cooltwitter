@@ -63,6 +63,7 @@
 		<servlet-name>DispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 		<url-pattern>/user/</url-pattern>
+		<url-pattern>/photo/</url-pattern>
 	</servlet-mapping>
 	
 	<session-config>

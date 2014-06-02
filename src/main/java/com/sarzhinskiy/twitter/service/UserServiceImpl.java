@@ -102,4 +102,15 @@ public class UserServiceImpl implements UserService, Serializable {
 		return repository.findAllObservedUser(userId);
 	}
 
+	@Override
+	public boolean addObservedUser(User observerUser, User observedUser) {
+		return repository.addObservedUser(observerUser, observedUser);
+	}
+
+	@Override
+	public boolean removeObservedUser(User observerUser, User observedUser) {
+		return removeObservedUser(observerUser, observedUser);
+	}
+
+
 }

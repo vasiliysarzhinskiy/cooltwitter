@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="joda" uri="http://www.joda.org/joda/time/tags" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,21 +11,19 @@
 <style>
 .layer_same_line {
 	padding: 0px;
-	margin: 0px;
+	margin:30px;
 	display:inline; 
 }
 .layer_user_info {
 	color: red;
-	font-weight: bold;
 	font-size: 30px;
+	font-weight: bold;
 }
 </style>
 
 
 </head>
 <body>
-	
-	
 	<img src='images/main.jpg' width="1330" height="80" />
 	<table>
 		<tr>
@@ -48,73 +47,58 @@
 				<a href="<c:url value="/news"/>">News</a>
 			</td>
 			
-			<td width="60%" bgcolor="#fdeef4">
-				<br>
+			<td width="60%" bgcolor="#fdeef4" valign="top">
+				<div>
+					<div style="display: inline; "><a href="<c:url value="/my_friends"/>">my friends</a></div>
+					<div style="display: inline;  padding-left: 30px;" ><a href="<c:url value="/my_observed_users" />">my observed users</a></div>
+				</div>
 				
-					<c:choose>
-						<c:when test="${empty showUserHome}">
-							<div class="layer_user_info">	
-								${user.name}
-								${user.surname}  
-							</div>
-							<br><br>
-							<div style="font-style: italic; font-weight: bold; color: green;">My Twits</div>
-					
-						</c:when>	
+				<c:if test="${not empty friendOption}">		
+					<c:choose>					
+						<c:when test="${friendOption == 'my_observed_users'}">
+							<div style="font-style: italic; font-weight: bold; color: red;">Observed me</div>
+							
+	
+						</c:when>
 						<c:otherwise>
-								<div class="layer_user_info">	
-								${showUserHome.name}
-								${showUserHome.surname}  
-							</div>
-							<br><br>
-							<div style="font-style: italic; font-weight: bold; color: green;">${showUserHome.name} Twits</div>
-						</c:otherwise>				
+							<div style="font-style: italic; font-weight: bold; color: red;">My friends</div>
+							<br>
+							<table bgcolor="#CCFFFF" cellspacing="10">
+								<thead >
+									<tr>
+										<th>Surname Name</th>
+										<th>Email</th>
+										<th></th>
+									</tr>
+								</thead>
+								<c:forEach items="${myFriends}" var="friend">
+									<tr>
+										<td colspan="3">
+									 		<hr color="green" width="550px" size="2" align="left">
+										</td>
+									</tr>
+									<tr>
+										<td>${friend.surname} ${friend.name}</td>
+										<td>${friend.email}</td>
+										<td>
+											<form method="post" action="show_user" style="float: left;" >
+												<input type="hidden" name="userId" value="${friend.id}"/>
+												<input type="submit" value="show"/>
+											</form> 
+										</td>
+									</tr>
+								</c:forEach>
+							</table>
+						</c:otherwise>
 					</c:choose>
-					
-							
-							
-							<c:forEach items="${myTwits}" var="twit">
-								<div style="color:orange;">
-									creation date:  <joda:format value="${twit.dateTime}" pattern="dd-mm-yyyy"/>
-								</div>  
-								
-								<form method="post" action="editTwit" style="margin-top: 5px">
-									<table>
-										<tr>
-											<td valign="top">
-												<textarea readonly="readonly" text-align: left" rows="3" cols="40" >${twit.text}</textarea>
-											</td>
-											<td valign="top">
-											
-												<input type="submit" value="edit"/>
-												<br style="line-height: 3px;" >
-												<a   href="<c:url value="/twitAddLike"/>">
-													<img src="images/like_icon.png" width="15" height="15">
-												</a>
-												
-											</td>
-										</tr>
-									</table>
-									
-								</form>
-								
-							</c:forEach>
-				
-				
+				</c:if>
 			</td>
 
-			<td width="20%" bgcolor="#6CC417"  align="right" valign="top">
+			<td width="20%" bgcolor="#6CC417" align="right" valign="top">
 				<table>
 					<tr>
 						<td>
-							<a href="<c:url value="/settings"/>">settings</a>
-						</td>
-						<td align="right">	
-							<a href="<c:url value="/logout"/>">logout</a>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" align="left">			
+							<a href="<c:url value="/logout"/>">logout</a>			
 							<form class="layer_same_line" method="post" action="language">
 									<select size="1" name="language">
 										<c:forEach items="${language}" var="language">

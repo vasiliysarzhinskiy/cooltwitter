@@ -31,6 +31,14 @@ public class TwitController {
 		this.userService = userService;
 	}
 	
+	@RequestMapping(value="/twitspage")
+	public String twitsPage(Model model) {
+		model.addAttribute("twitOption", "my_twits");
+		List<Twit> twits = twitService.findAllByOwnerId(userManager.getUser().getId());
+		model.addAttribute("myTwits", twits);
+		return "TwitsPage";
+	}
+	
 	@RequestMapping(value="/new_twit")
 	public String creationTwit(Model model) {
 		model.addAttribute("twitOption", "new_twit");
@@ -50,8 +58,6 @@ public class TwitController {
 		model.addAttribute("twitOption", "friends_twits");
 		List<User> users = userService.findAllObservedUsers(userManager.getUser().getId());
 		model.addAttribute("friends", users);
-		
-		
 		return "TwitsPage";
 	}
 	
@@ -61,7 +67,6 @@ public class TwitController {
 		twit.setOwnerId(userManager.getUser().getId());
 		twit.setText(createdTwit);
 		twitService.create(twit);
-		
 		model.addAttribute("twitOption", "my_twits");
 		return "redirect:/my_twits";
 	}
@@ -76,11 +81,9 @@ public class TwitController {
 		Long friendId = Long.parseLong(selectedFriendId);
 		List<Twit> twits = twitService.findAllByOwnerId(friendId);
 		redirectAttributes.addFlashAttribute("friend", userService.findById(friendId));
-		redirectAttributes.addFlashAttribute("friendTwits", twits);
-		
+		redirectAttributes.addFlashAttribute("friendTwits", twits);		
 //		model.addAttribute("friend", userService.findById(friendId));
 //		model.addAttribute("friendTwits", twits);
-		
 		return "redirect:/friends_twits";
 	}
 	

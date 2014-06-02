@@ -20,4 +20,6 @@ public interface UserService {
 	public boolean update(User user);
 	public boolean updateAdditionalInfo(UserAdditionalInfo userInfo);
 	public List<User> findAllObservedUsers(Long userId);
+	public boolean addObservedUser(User observerUser, User observedUser); 
+	public boolean removeObservedUser(User observerUser, User observedUser); 
 }
