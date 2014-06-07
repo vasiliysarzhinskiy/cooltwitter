@@ -25,10 +25,16 @@
 </head>
 <body>
 	
+		<spring:message code="label.home_page" var="labelHomePage" />
+	<spring:message code="label.edit_info" var="labelEditInfo" />										
+	<spring:message code="label.twits" var="labelTwits" />
+	<spring:message code="label.friends" var="labelFriends" />
+	<spring:message code="label.search_users" var="labelSearchUsers" />
+	<spring:message code="label.news" var="labelNews" />
 	
-	<img src='images/main.jpg' width="1330" height="80" />
+	<img src='images/main.jpg' width="100%" height="80" />
 	<table>
-		<tr >
+		<tr>
 			<td width="20%" bgcolor="#fdeaa4" valign="top">
 				<div class="layer_user_info">
 					${user.name}
@@ -36,18 +42,19 @@
 				</div>
 				
 				<br>
-				<a href="<c:url value="/userhome"/>">My Home Page</a>
+				<a href="<c:url value="/userhome"/>" style="color: blue;">${labelHomePage}</a>
 				<br>
-				<a href="<c:url value="/usereditinfo"/>">Edit info</a>
+				<a href="<c:url value="/usereditinfo"/>" style="color: fuchsia;">${labelEditInfo}</a>
 				<br>
-				<a href="<c:url value="/twitspage"/>">Twits</a>	
+				<a href="<c:url value="/twitspage"/>" style="color: blue;">${labelTwits}</a>	
 				<br>
-				<a href="<c:url value="/friends"/>">Friends</a>	
+				<a href="<c:url value="/friends"/>" style="color: fuchsia;">${labelFriends}</a>	
 				<br>
-			    <a href="<c:url value="/search_users"/>"> Search Users</a>
+			    <a href="<c:url value="/search_users"/>" style="color: blue;">${labelSearchUsers}</a>
 				<br>
-				<a href="<c:url value="/news"/>">News</a>
+				<a href="<c:url value="/news"/>" style="color: fuchsia;">${labelNews}</a>
 			</td>
+
 			
 			<td width="60%" bgcolor="#fdeef4" valign="top">
 				<div>
@@ -112,29 +119,46 @@
 						<c:otherwise>
 							<div style="font-style: italic; font-weight: bold; color: red;">My Twits</div>
 							<c:forEach items="${myTwits}" var="twit">
-								<div style="color:orange;">
+								<div style="color:orange; margin-top: 15px;" >
 									creation date:  <joda:format value="${twit.dateTime}" pattern="dd-mm-yyyy"/>
 								</div>  
 								
-								<form method="post" action="editTwit" style="margin-top: 5px">
+								
 									<table>
 										<tr>
 											<td valign="top">
 												<textarea readonly="readonly" text-align: left" rows="3" cols="40" >${twit.text}</textarea>
 											</td>
 											<td valign="top">
-											
-												<input type="submit" value="edit"/>
-												<br style="line-height: 3px;" >
 												<a   href="<c:url value="/twitAddLike"/>">
 													<img src="images/like_icon.png" width="15" height="15">
 												</a>
 												
 											</td>
 										</tr>
+										<tr>
+											<td>
+												<div style="display: inline;">
+												<form method="post" action="editTwit"  style="display: inline; width: 50px;">
+													<input type="submit" value="edit" style="width: 70px;"/>
+												</form>
+												
+												<form method="post" action="commentTwit" style="display: inline; width: 50px;">
+													<input type="submit" value="comment" style="width: 70px;"/>
+												</form>
+												
+												<form method="post" action="deleteTwit" style="display: inline;" >
+													<input type="submit" value="delete" style="width: 70px;"/>
+												</form>
+												</div>
+											</td>
+											<td>
+												
+											</td>	
+										</tr>
 									</table>
 									
-								</form>
+								
 								
 							</c:forEach>
 						</c:otherwise>

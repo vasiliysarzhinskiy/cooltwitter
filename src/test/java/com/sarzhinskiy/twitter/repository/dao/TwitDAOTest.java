@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.sarzhinskiy.twitter.domain.twit.Twit;
 import com.sarzhinskiy.twitter.domain.Image;
-import com.sarzhinskiy.twitter.repository.dao.TwitDAO;
+import com.sarzhinskiy.twitter.repository.twit.TwitDAO;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

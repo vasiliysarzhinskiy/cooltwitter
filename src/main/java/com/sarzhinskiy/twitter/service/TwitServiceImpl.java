@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sarzhinskiy.twitter.domain.twit.Twit;
-import com.sarzhinskiy.twitter.repository.dao.TwitDAO;
+import com.sarzhinskiy.twitter.repository.twit.TwitDAO;
 
 @Service("TwitService")
 public class TwitServiceImpl implements TwitService {
@@ -29,8 +29,28 @@ public class TwitServiceImpl implements TwitService {
 	}
 
 	@Override
+	public List<Twit> findNLastByOwnerId(Long id, int numberTwits) {
+		return repository.findLastByOwnerId(id, numberTwits);
+	}
+	
+	@Override
 	public boolean update(Twit twit) {
 		return repository.update(twit);
+	}
+
+	@Override
+	public boolean updateLikeNumber(Twit twit) {
+		return repository.updateLikeNumber(twit);
+	}
+
+	@Override
+	public boolean remove(Long id) {
+		return repository.remove(id);
+	}
+
+	@Override
+	public Twit findById(Long twitId) {
+		return repository.findById(twitId);
 	}
 
 }

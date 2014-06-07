@@ -13,18 +13,18 @@ import com.sarzhinskiy.twitter.domain.user.Gender;
 import com.sarzhinskiy.twitter.domain.user.User;
 import com.sarzhinskiy.twitter.domain.user.UserAdditionalInfo;
 import com.sarzhinskiy.twitter.domain.user.UserRole;
-import com.sarzhinskiy.twitter.repository.dao.CityDAO;
-import com.sarzhinskiy.twitter.repository.dao.CountryDAO;
+import com.sarzhinskiy.twitter.repository.city.CityDAO;
+import com.sarzhinskiy.twitter.repository.country.CountryDAO;
+import com.sarzhinskiy.twitter.repository.country.CountryDAOPostgreSQL;
 import com.sarzhinskiy.twitter.repository.dao.DAOFactory;
-import com.sarzhinskiy.twitter.repository.dao.NewsDAO;
-import com.sarzhinskiy.twitter.repository.dao.TwitDAO;
-import com.sarzhinskiy.twitter.repository.dao.UserDAO;
-import com.sarzhinskiy.twitter.repository.dao.postgresql.city.CityDAOPostgreSQL;
-import com.sarzhinskiy.twitter.repository.dao.postgresql.country.CountryDAOPostgreSQL;
-import com.sarzhinskiy.twitter.repository.dao.postgresql.news.NewsDAOPostgreSQL;
-import com.sarzhinskiy.twitter.repository.dao.postgresql.user.UserDAOPostgreSQL;
+import com.sarzhinskiy.twitter.repository.city.CityDAOPostgreSQL;
+import com.sarzhinskiy.twitter.repository.twit.TwitDAO;
 import com.sarzhinskiy.twitter.repository.jbdc.Connectable;
 import com.sarzhinskiy.twitter.repository.jbdc.ConnectionPool;
+import com.sarzhinskiy.twitter.repository.news.NewsDAO;
+import com.sarzhinskiy.twitter.repository.news.NewsDAOPostgreSQL;
+import com.sarzhinskiy.twitter.repository.user.UserDAO;
+import com.sarzhinskiy.twitter.repository.user.UserDAOPostgreSQL;
 
 public class Main {
 	

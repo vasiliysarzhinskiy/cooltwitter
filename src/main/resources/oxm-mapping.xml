@@ -1,0 +1,55 @@
+<mapping>
+	<class name="com.sarzhinskiy.twitter.domain.user.Users" >
+		<field name="users" type="com.sarzhinskiy.twitter.domain.user.User" collection="arraylist" >
+			<bind-xml name="user" />
+		</field>
+	</class>
+	
+	<class name="com.sarzhinskiy.twitter.domain.user.User" identity="id">
+		<map-to xml="user" />
+		<field name="id" type="long">
+			<bind-xml name="id" node="element" />
+		</field>
+		<field name="email" type="string">
+			<bind-xml name="email" node="element" />
+		</field>	
+		<field name="passwordCipher" type="string">
+			<bind-xml name="passwordCipher" node="element" />
+		</field>
+		<field name="surname" type="string">
+			<bind-xml name="surname" node="element" />
+		</field>
+		<field name="name" type="string">
+			<bind-xml name="name" node="element" />
+		</field>
+	</class>
+	
+	<class name="com.sarzhinskiy.twitter.domain.twit.Twits">
+		<field name="twits" type="com.sarzhinskiy.twitter.domain.twit.Twit" collection="arraylist" >
+			<bind-xml name="twit" />
+		</field>
+	</class>
+	
+	<class name="com.sarzhinskiy.twitter.domain.twit.Twit" identity="id" >
+		<map-to xml="twit"/>
+		<field name="id" type="long">
+			<bind-xml name="id" node="element" />
+		</field>
+		<field name="ownerId" type="long">
+			<bind-xml name="ownerId" node="element" />
+		</field>
+		<field name="text" type="string">
+			<bind-xml name="text" node="element" />
+		</field>
+		<field name="status" type="integer">
+			<bind-xml name="status" node="element" />
+		</field>
+		<field name="likeNumber" type="integer">
+			<bind-xml name="likeNumber" node="element" />
+		</field>
+	</class>
+	
+</mapping>
+
+<!-- 	private DateTime dateTime;
+	private Image image; -->

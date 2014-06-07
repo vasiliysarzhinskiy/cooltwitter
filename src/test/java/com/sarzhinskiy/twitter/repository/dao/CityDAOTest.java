@@ -14,8 +14,8 @@ import static org.junit.Assert.*;
 
 import com.sarzhinskiy.twitter.domain.city.City;
 import com.sarzhinskiy.twitter.domain.country.Country;
-import com.sarzhinskiy.twitter.repository.dao.CityDAO;
-import com.sarzhinskiy.twitter.repository.dao.CountryDAO;
+import com.sarzhinskiy.twitter.repository.city.CityDAO;
+import com.sarzhinskiy.twitter.repository.country.CountryDAO;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

@@ -23,9 +23,9 @@ import com.sarzhinskiy.twitter.domain.user.User;
 import com.sarzhinskiy.twitter.domain.user.UserAdditionalInfo;
 import com.sarzhinskiy.twitter.domain.user.UserImage;
 import com.sarzhinskiy.twitter.domain.user.UserRole;
-import com.sarzhinskiy.twitter.repository.dao.CityDAO;
-import com.sarzhinskiy.twitter.repository.dao.CountryDAO;
-import com.sarzhinskiy.twitter.repository.dao.UserDAO;
+import com.sarzhinskiy.twitter.repository.city.CityDAO;
+import com.sarzhinskiy.twitter.repository.country.CountryDAO;
+import com.sarzhinskiy.twitter.repository.user.UserDAO;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

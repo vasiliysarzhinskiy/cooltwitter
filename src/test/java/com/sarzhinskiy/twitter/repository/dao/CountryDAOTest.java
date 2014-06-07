@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.sarzhinskiy.twitter.domain.country.Country;
-import com.sarzhinskiy.twitter.repository.dao.CountryDAO;
+import com.sarzhinskiy.twitter.repository.country.CountryDAO;
 
 import static org.junit.Assert.*;
 

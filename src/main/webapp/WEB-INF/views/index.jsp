@@ -23,15 +23,16 @@
 </style>
 </head>
 <body>
-	<img src='images/main.jpg' width="1330" height="80" />
+	<img src='images/main.jpg' width="100%" height="80" />
 	<table>
 		<tr>
-			<td width="80%" bgcolor="#fdeef4">NEWS! <spring:message
-					code="label.title_news" /> <br> <a
-				href="<c:url value="/user/viewall"/>"> View All Users</a>
+			<td width="80%" bgcolor="#fdeef4">NEWS! 
+				
+				<br>
+				<img src='images/twitImage.jpg' width="400px" height="400px" />
 			</td>
 
-			<td width="20%" bgcolor="#6CC417">
+			<td width="20%" bgcolor="#6CC417" valign="top">
 				<table>
 					<tr>
 						<td><a href="<c:url value="/registration"/>"> Register </a>

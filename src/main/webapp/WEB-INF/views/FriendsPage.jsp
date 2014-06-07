@@ -24,7 +24,14 @@
 
 </head>
 <body>
-	<img src='images/main.jpg' width="1330" height="80" />
+		<spring:message code="label.home_page" var="labelHomePage" />
+	<spring:message code="label.edit_info" var="labelEditInfo" />										
+	<spring:message code="label.twits" var="labelTwits" />
+	<spring:message code="label.friends" var="labelFriends" />
+	<spring:message code="label.search_users" var="labelSearchUsers" />
+	<spring:message code="label.news" var="labelNews" />
+	
+	<img src='images/main.jpg' width="100%" height="80" />
 	<table>
 		<tr>
 			<td width="20%" bgcolor="#fdeaa4" valign="top">
@@ -34,18 +41,19 @@
 				</div>
 				
 				<br>
-				<a href="<c:url value="/userhome"/>">My Home Page</a>
+				<a href="<c:url value="/userhome"/>" style="color: blue;">${labelHomePage}</a>
 				<br>
-				<a href="<c:url value="/usereditinfo"/>">Edit info</a>
+				<a href="<c:url value="/usereditinfo"/>" style="color: fuchsia;">${labelEditInfo}</a>
 				<br>
-				<a href="<c:url value="/twitspage"/>">Twits</a>	
+				<a href="<c:url value="/twitspage"/>" style="color: blue;">${labelTwits}</a>	
 				<br>
-				<a href="<c:url value="/friends"/>">Friends</a>	
+				<a href="<c:url value="/friends"/>" style="color: fuchsia;">${labelFriends}</a>	
 				<br>
-			    <a href="<c:url value="/search_users"/>"> Search Users</a>
+			    <a href="<c:url value="/search_users"/>" style="color: blue;">${labelSearchUsers}</a>
 				<br>
-				<a href="<c:url value="/news"/>">News</a>
+				<a href="<c:url value="/news"/>" style="color: fuchsia;">${labelNews}</a>
 			</td>
+
 			
 			<td width="60%" bgcolor="#fdeef4" valign="top">
 				<div>

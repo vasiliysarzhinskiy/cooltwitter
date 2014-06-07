@@ -22,19 +22,19 @@
         <constructor-arg ref="dataSource"/>
     </bean>	
     
-    <bean id="countryDAO" class="com.sarzhinskiy.twitter.repository.dao.postgresql.country.CountryDAOPostgreSQL" >
+    <bean id="countryDAO" class="com.sarzhinskiy.twitter.repository.country.CountryDAOPostgreSQL" >
     	<constructor-arg ref="twitterPoolTest" />
     </bean>
     
-    <bean id="cityDAO" class="com.sarzhinskiy.twitter.repository.dao.postgresql.city.CityDAOPostgreSQL" >
+    <bean id="cityDAO" class="com.sarzhinskiy.twitter.repository.city.CityDAOPostgreSQL" >
         <constructor-arg ref="twitterPoolTest" />
    	</bean>
     
-    <bean id="newsDAO" class="com.sarzhinskiy.twitter.repository.dao.postgresql.news.NewsDAOPostgreSQL" >
+    <bean id="newsDAO" class="com.sarzhinskiy.twitter.repository.news.NewsDAOPostgreSQL" >
         <constructor-arg ref="twitterPoolTest" />
    	</bean>
    	
-   	<bean id="twitDAO" class="com.sarzhinskiy.twitter.repository.dao.postgresql.twit.TwitDAOPostgreSQL" >
+   	<bean id="twitDAO" class="com.sarzhinskiy.twitter.repository.twit.TwitDAOPostgreSQL" >
    		<constructor-arg ref="twitterPoolTest" />
    	</bean>
    	

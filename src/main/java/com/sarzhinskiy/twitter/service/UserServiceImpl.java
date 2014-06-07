@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.sarzhinskiy.twitter.domain.user.User;
 import com.sarzhinskiy.twitter.domain.user.UserAdditionalInfo;
 import com.sarzhinskiy.twitter.encryption.Encrypt;
-import com.sarzhinskiy.twitter.repository.dao.UserDAO;
+import com.sarzhinskiy.twitter.repository.user.UserDAO;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService, Serializable {

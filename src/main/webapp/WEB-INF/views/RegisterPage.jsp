@@ -23,7 +23,7 @@
 </style>
 </head>
 <body>
-	<img src='images/main.jpg' width="1200" height="120" />
+	<img src='images/main.jpg' width="100%" height="120" />
 	<br><h1> Register </h1>
     <form method="post" action="register">
         <table  class="layer_margin_left" >

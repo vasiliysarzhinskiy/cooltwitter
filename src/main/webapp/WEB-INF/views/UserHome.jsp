@@ -23,9 +23,15 @@
 
 </head>
 <body>
+
+	<spring:message code="label.home_page" var="labelHomePage" />
+	<spring:message code="label.edit_info" var="labelEditInfo" />										
+	<spring:message code="label.twits" var="labelTwits" />
+	<spring:message code="label.friends" var="labelFriends" />
+	<spring:message code="label.search_users" var="labelSearchUsers" />
+	<spring:message code="label.news" var="labelNews" />
 	
-	
-	<img src='images/main.jpg' width="1330" height="80" />
+	<img src='images/main.jpg' width="100%" height="80" />
 	<table>
 		<tr>
 			<td width="20%" bgcolor="#fdeaa4" valign="top">
@@ -35,17 +41,17 @@
 				</div>
 				
 				<br>
-				<a href="<c:url value="/userhome"/>">My Home Page</a>
+				<a href="<c:url value="/userhome"/>" style="color: blue;">${labelHomePage}</a>
 				<br>
-				<a href="<c:url value="/usereditinfo"/>">Edit info</a>
+				<a href="<c:url value="/usereditinfo"/>" style="color: fuchsia;">${labelEditInfo}</a>
 				<br>
-				<a href="<c:url value="/twitspage"/>">Twits</a>	
+				<a href="<c:url value="/twitspage"/>" style="color: blue;">${labelTwits}</a>	
 				<br>
-				<a href="<c:url value="/friends"/>">Friends</a>	
+				<a href="<c:url value="/friends"/>" style="color: fuchsia;">${labelFriends}</a>	
 				<br>
-			    <a href="<c:url value="/search_users"/>"> Search Users</a>
+			    <a href="<c:url value="/search_users"/>" style="color: blue;">${labelSearchUsers}</a>
 				<br>
-				<a href="<c:url value="/news"/>">News</a>
+				<a href="<c:url value="/news"/>" style="color: fuchsia;">${labelNews}</a>
 			</td>
 			
 			<td width="60%" bgcolor="#fdeef4">
@@ -74,7 +80,7 @@
 							
 							
 							<c:forEach items="${myTwits}" var="twit">
-								<div style="color:orange;">
+								<div style="color:orange; margin-top: 10px;">
 									creation date:  <joda:format value="${twit.dateTime}" pattern="dd-mm-yyyy"/>
 								</div>  
 								
@@ -107,14 +113,7 @@
 				<table>
 					<tr>
 						<td>
-							<a href="<c:url value="/settings"/>">settings</a>
-						</td>
-						<td align="right">	
-							<a href="<c:url value="/logout"/>">logout</a>
-						</td>
-					</tr>
-					<tr>
-						<td colspan="2" align="left">			
+							<a href="<c:url value="/logout"/>">logout</a>			
 							<form class="layer_same_line" method="post" action="language">
 									<select size="1" name="language">
 										<c:forEach items="${language}" var="language">
